@@ -31,7 +31,7 @@ describe("Filter function", () => {
     expect(filterByTerm(input, "uRl")).toEqual(output);//pesquisando pelo termo url
 
   });
-/*
+
   test("empty search term", () => {
     const input = [
       { id: 1, url: "https://www.url1.dev" },
@@ -39,14 +39,8 @@ describe("Filter function", () => {
       { id: 3, url: "https://www.link3.dev" }
     ];
 
-    const output = [
-      { id: 1, url: "https://www.url1.dev" },
-      { id: 2, url: "https://www.url2.dev" },
-      { id: 3, url: "https://www.link3.dev" }
-    ];
+    expect(() => { input('');}).toThrow(Error);
 
-    expect(filterByTerm(input, "")).toEqual(output);
-
-  });*/
+  });
 
 });
