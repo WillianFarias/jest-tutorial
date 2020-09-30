@@ -1,4 +1,5 @@
-const filterByTerm = require("../src/filterByTerm");
+//const filterByTerm = require("../src/filterByTerm");
+import { filterByTerm } from "../src/filterByTerm";
 
 describe("Filter function", () => {
   //test stuff
@@ -16,7 +17,7 @@ describe("Filter function", () => {
     expect(filterByTerm(input, "LINK")).toEqual(output); // maisculas
   });
 
-  test("it should filter by a search term (url)", () => {
+  test("it should filter by a search term (uRl)", () => {
     const input = [
       { id: 1, url: "https://www.url1.dev" },
       { id: 2, url: "https://www.url2.dev" },
@@ -33,13 +34,20 @@ describe("Filter function", () => {
   });
 
   test("empty search term", () => {
-    const input = [
-      { id: 1, url: "https://www.url1.dev" },
-      { id: 2, url: "https://www.url2.dev" },
-      { id: 3, url: "https://www.link3.dev" }
-    ];
+    const input = [];
 
-    expect(() => { input('');}).toThrow(Error);
+    expect(() => {
+      filterByTerm(input, "");
+    }).toThrowError(Error("searchTerm cannot be empty"));
+
+  });
+
+  test("empty inputarr", () => {
+    const input = [];
+
+    expect(() => {
+      filterByTerm(input, "uRl");
+    }).toThrowError(Error("inputArr cannot be empty"));
 
   });
 
