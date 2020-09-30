@@ -9,7 +9,7 @@
   "type": "module",
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": ["html"]
+    "coverageReporters": ["html", "text"]
   },
   "keywords": [],
   "author": "",
